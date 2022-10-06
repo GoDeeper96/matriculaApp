@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
+<title>Matricula</title>
+<link rel="stylesheet"
+	href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+<link rel="stylesheet" href="/css/bootstrap.min.css">
+<link rel="stylesheet" href="/css/dive.css">
+</head>
+<body>
+
+	<div th:fragment="sidebar" id="panel" class="activepanel "
+		style="background: #ADD8E6; color: #EBECF1; width: 20%;" >
+		<div id="cpanel1head" style="margin: 10px; height: 2%; width: 100%" class="row">
+			<h2 id="titulopanel" class="col-lg-10" style="color: white;">Matricula</h2>
+			<i id="iconpanel" class="fa fa-bars col-lg-2"></i>
+		</div>
+		<div id="cpanelbody" class="row">
+
+
+			<div class="panelitem">
+				<a th:href="@{/users/home}"> <i class="fa fa-home"
+					style="color: white;"></i>
+				</a>
+				<p>Inicio</p>
+			</div>
+			<div class="panelitem">
+				<a th:href="@{/sections/list}"> <i class="fa fa-building"
+					style="color: white;"></i>
+				</a>
+				<p>Lista de Cursos</p>
+			</div>
+			<div class="panelitem" sec:authorize= "hasRole('ROLE_ADMIN')">
+				<a th:href="@{/courses/list}"> <i class="fa fa-building"
+					style="color: white;"></i>
+				</a>
+				<p>Administrar Cursos</p>
+			</div>
+			<div class="panelitem" sec:authorize= "hasRole('ROLE_ADMIN')">
+				<a th:href="@{/users/list}"> <i class="fa fa-building"
+					style="color: white;"></i>
+				</a>
+				<p>Administrar Usuarios</p>
+			</div>
+			<div class="panelitem" sec:authorize= "hasRole('ROLE_ADMIN')">
+				<a th:href="@{/admissions/list}"> <i class="fa fa-building"
+					style="color: white;"></i>
+				</a>
+				<p>Administrar Matriculas</p>
+			</div>
+			<div class="panelitem" sec:authorize= "hasRole('ROLE_ADMIN')">
+				<a th:href="@{/roles/list}"> <i class="fa fa-users"
+					style="color: white;"></i>
+				</a>
+				<p>Administrar Roles</p>
+			</div>
+			
+		</div>
+	</div>
+</body>
+</html>
